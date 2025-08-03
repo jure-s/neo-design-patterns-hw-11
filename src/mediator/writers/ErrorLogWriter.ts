@@ -9,6 +9,7 @@ export class ErrorLogWriter {
   }
 
   async finalize() {
+    await fs.mkdir("src/output", { recursive: true });
     await fs.writeFile("src/output/errors.jsonl", this.lines.join("\n"));
   }
 }

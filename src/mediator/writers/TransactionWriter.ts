@@ -9,6 +9,7 @@ export class TransactionWriter {
   }
 
   async finalize() {
+    await fs.mkdir("src/output", { recursive: true });
     await fs.writeFile("src/output/transactions.csv", this.lines.join("\n"));
   }
 }

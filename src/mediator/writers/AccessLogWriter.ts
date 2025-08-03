@@ -9,9 +9,11 @@ export class AccessLogWriter {
   }
 
   async finalize() {
+    await fs.mkdir("src/output", { recursive: true });
     await fs.writeFile(
       "src/output/access_logs.json",
       JSON.stringify(this.records, null, 2)
     );
   }
 }
+

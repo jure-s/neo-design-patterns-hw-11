@@ -9,6 +9,7 @@ export class RejectedWriter {
   }
 
   async finalize() {
+    await fs.mkdir("src/output", { recursive: true });
     await fs.writeFile("src/output/rejected.jsonl", this.lines.join("\n"));
   }
 }
